@@ -10,7 +10,7 @@ class Rectangle extends Figure{
     }
     @Override
     public String toString(){
-        return "R " + "(" + this.x + "," + this.y + "), " + "(" + this.x + "," + this.y + ")";
+        return "R " + "(" + this.x + "," + this.y + "), " + "(" + this.x1 + "," + this.y1 + ")";
     }
     public int get_x() {
         return x;
