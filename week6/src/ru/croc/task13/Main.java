@@ -10,8 +10,10 @@ class FilterComm implements BlackListFilter{
     public void filterComments(List<String> comments, Set<String> blackList){
         List<String> RemoveAfter = new ArrayList<>();
         for(String element : comments) {
-            if (blackList.contains(element)) {
-                RemoveAfter.add(element);
+            for (String h: blackList) {
+                if (element.contains(h)) {
+                    RemoveAfter.add(element);
+                }
             }
         }
         comments.removeAll(RemoveAfter);
@@ -24,14 +26,15 @@ class Main {
         comm.add("one");
         comm.add("two");
         comm.add("three");
-        comm.add("Hello!");
+        comm.add("Hello!\n");
         comm.add("four");
-        comm.add("Hey!");
+        comm.add("Hey! wee");
         comm.add("five");
-        comm.add("Bye!");
+        comm.add("Bye!, Goodbye!");
         comm.add("six");
         comm.add("seven");
         comm.add("eight");
+        comm.add("ey trash \n,;sddsg");
         comm.add("nine");
         comm.add("ten");
         Set<String> blackList = new HashSet<>();
@@ -47,6 +50,7 @@ class Main {
         blackList_1.add("Hello!");
         blackList_1.add("Hey!");
         blackList_1.add("Bye!");
+        blackList_1.add("trash");
         FilterComm b = new FilterComm();
         b.filterComments(comm,blackList_1);
         for (int i = 0; i < comm.size(); i++) {
