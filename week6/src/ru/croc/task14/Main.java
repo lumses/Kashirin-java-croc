@@ -46,7 +46,7 @@ class Main {
                    cnt++;
                }   
             }
-            if (cnt*2>=words.length) { // проверяем в итоге исполняется первый пункт алгоритма 
+            if (cnt*2 >= input.size()) { // проверяем в итоге исполняется первый пункт алгоритма 
                 for (String w: words) { //тогда уже кладем в словарь фильмов те фильмы, которые не смотрел конкретный пользователь
                     if (!(input.contains(Integer.parseInt(w)))){ // в словаре ключ - идентификатор фильма, значение - кол-во просмотров
                         if (films.containsKey(Integer.parseInt(w))){
@@ -58,8 +58,8 @@ class Main {
                 }
             }
         }
-        
         Iterator<Integer> it = films.keySet().iterator();
+        if (it.hasNext()) {
         Integer maxk = it.next();
         Integer maxv = films.get(maxk); 
         while(it.hasNext()) { // с помощью итераторов ищем первый фильм с максимальным кол-вом просмотром
@@ -71,5 +71,8 @@ class Main {
             }
         }
         System.out.println(IDAndFilms.get(maxk));
+        } else System.out.println("No such films");
     }
 }
+
+
