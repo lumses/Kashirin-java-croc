@@ -33,7 +33,7 @@ public class Main {
                         if (product == null) {
                             System.out.println("Нет такого товара для добавления в заказ, article - " + request[i]);
                         }
-                        product.add(product);
+                        products.add(product);
                     }
                     dao.createOrder(request[1], products);
                 } else if (request[0] == "КОНЕЦ") {
